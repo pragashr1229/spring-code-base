@@ -1,0 +1,62 @@
+
+
+Application Architecture :
+
+Controller <-> Service <-> DAO <-> Database
+
+Code snippet in DAO layer
+
+public void addAccount() {		
+	System.out.println(getClass() + ": DOING MY DB WORK: ADDING AN ACCOUNT");
+}
+
+New Requirement - Logging:
+Need to add logging to our DAO method
+	Add some logging statements before the start of the method
+	
+New Requirement - Security:
+Need to add security to our DAO method
+	Make sure user is authorized before running the DAO method
+
+
+public void addAccount() {
+	// add code for logging		
+	// add code for security
+	System.out.println(getClass() + ": DOING MY DB WORK: ADDING AN ACCOUNT");
+}
+
+add the Logging & security to all the layers & in the entire system
+
+Two main problems :
+Code Scattering - if we need to change logging or security code, we have to update to all classes. 
+Code tangling is when a specific piece of code performs multiple functions.
+
+Aspect Oriented Programming (AOP):
+----------------------------------
+AOP breaks the program logic into distinct parts (called concerns). 
+It is used to increase modularity(individual modules to be developed) by cross-cutting concerns.
+
+A cross-cutting concern is a concern that can affect the whole application and 
+should be centralized in one location in code as possible, 
+such as transaction management, authentication, logging, security etc.
+
+Additional AOP Use Cases
+• Most common
+	• logging, security, transactions
+• Audit logging
+	• who, what, when, where
+• Exception handling
+	• log exception and notify DevOps team via SMS/email
+• API Management
+	• how many times has a method been called user
+	• analytics: what are peak times? what is average load? who is top user
+	
+	
+AOP Concepts and Terminology
+Aspect : Aspect is a concern that we are trying to implement generically
+Example : logging
+
+Pointcut(regular expression) : what are the method calls we need to intercept or 
+Example : ("execution(public void addAccount())")
+
+ 

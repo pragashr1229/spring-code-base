@@ -1,0 +1,17 @@
+package com.spring.demo.inject.collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.context.annotation.Bean;
+
+public class CollectionConfig2 {
+	@Bean
+	public Map<Integer, String> nameMap(){
+	    Map<Integer, String>  nameMap = new HashMap<>();
+	    nameMap.put(1, "John");
+	    nameMap.put(2, "Adam");
+	    nameMap.put(3, "Harry");
+	    return nameMap;
+	}
+}

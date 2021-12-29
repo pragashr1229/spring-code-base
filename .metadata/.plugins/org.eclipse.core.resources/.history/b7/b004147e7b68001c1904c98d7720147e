@@ -1,0 +1,14 @@
+
+Problems of JDBC API
+The problems of JDBC API are as follows:
+
+We need to write a lot of code before and after executing the query, such as creating connection, statement, closing resultset, connection etc.
+We need to perform exception handling code on the database logic.
+Repetition of all these codes from one to another database logic is a time consuming task.
+
+Spring JdbcTemplate Tutorial
+============================
+Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. 
+It internally uses JDBC api, but eliminates a lot of problems of JDBC API.
+
+Spring framework provides following approaches for JDBC database access:

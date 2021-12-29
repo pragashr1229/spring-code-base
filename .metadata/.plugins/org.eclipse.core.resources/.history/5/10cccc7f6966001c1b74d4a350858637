@@ -1,0 +1,5 @@
+package com.spring.demo.life.cycle.Annotation;
+
+public class Client {
+
+}

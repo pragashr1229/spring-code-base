@@ -1,0 +1,43 @@
+
+Spring Bean :
+In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. 
+A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.
+
+Bean LifeCycle:
+Bean life cycle is managed by the spring container. When we run the program then, first of all, the spring container gets started. 
+After that, the container creates the instance of a bean as per the request, and then dependencies are injected. 
+And finally, the bean is destroyed when the spring container is closed. 
+Therefore, if we want to execute some code on the bean instantiation and just after closing the spring container, 
+then we can write that code inside the custom init() method and the destroy() method
+
+Container -> Bean Instantiated -> Dependency Injected -> Custom init method() -> Custom utility method -> Custom destroy method
+
+Ways to implement the life cycle of a bean:
+1.By XML
+2.By Programmatic Approach
+3.Using Annotation
+
+
+Bean scopes – refers to the lifecycle of a bean, how long does the bean live , how many instances are created
+
+
+1. Spring Bean Scope Types
+    1.1. singleton scope
+    1.2. prototype scope
+    1.3. request scope
+    1.4. session scope
+    1.5. application scope
+    1.6. websocket scope
+    
+    
+
+singleton scope 
+	– spring container creates only one instance of the bean, by default.
+	– it is cached in memory
+	– all request for the bean will return shared reference to the same bean
+
+Coach theCoach = context.getBean(“theTennisCoach”,Coach.class);
+
+Coach theCoach1 = context.getBean(“theTennisCoach”,Coach.class);
+theCoach, theCoach1 both addresses are same
+
