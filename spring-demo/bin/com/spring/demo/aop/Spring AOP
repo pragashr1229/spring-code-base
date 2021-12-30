@@ -56,8 +56,29 @@ AOP Concepts and Terminology
 Aspect : Aspect is a concern that we are trying to implement generically
 Example : logging
 
-Pointcut(regular expression) : what are the method calls we need to intercept 
+Pointcut(regular expression) : A predicate expression where advice should be applied  
 Example : ("execution(public void addAccount())")
+
+pointcut expression language:
+execution(modifier-pattern? return-type-pattern declare-type-pattern?method-name-pattern(param-pattern) throws pattern?)
+
+modifier-pattern : Spring AOP only supports public
+return-type-pattern : void,boolean,String
+declare-type-pattern - the class name
+method-name-pattern - method name to match
+param-pattern - parameters to match
+throws pattern - exceptional
+
+The pattern is optional if it has "?"
+modifier-pattern? , declare-type-pattern? , pattern? is optional in pointcut expression language
+
+
+Match only addAcount method in AccountDAO class
+("execution(public void com.spring.demo.aop.dao.AccountDAO.addAccount())")
+
+Match any addAcount method in any class
+("execution(public void addAccount())")
+
 
 Advice : what to be done when a pointcut matches
 
@@ -69,6 +90,36 @@ public void beforeAddAccountAdvice() {
 Join point
 Join point is any point in your program such as method execution, exception handling, 
 field access etc. Spring supports only method execution join point.
+
+Problem :
+When we are in an aspects (ie for logging)
+	How can we access method parameters
+		Account myAccount = new Account();
+		theAccountDao.addAccount(myAccount,true);
+		
+Step1 : Access & display method signature
+	@Before("")
+	public void beforeAddAccountAdvice(Jointpoint jointpoint) // Jointpoint contains the metedata about the method call
+		{
+			MethodSignature methodSignature =(MethodSignature)jointpoint.getSignature();
+			sysout("methodSignature: "+methodSignature)
+		}
+		
+output : void com.spring.demo.aop.dao.beforeAddAccountAdvice(Account,Boolean)
+
+Step2 : Access & display method arguments
+@Before("")
+	public void beforeAddAccountAdvice(Jointpoint jointpoint)
+	{
+		Object args[] = jointpoint.args();
+		
+		for(Object tempargs : args){
+			sysout(tempargs)
+		}
+	}
+
+output : com.spring.demo.aop.Account@ehqwuy536
+		 true
 
 weaving : Weaving
 It is the process of linking aspect with other application types or objects to create an advised object. 

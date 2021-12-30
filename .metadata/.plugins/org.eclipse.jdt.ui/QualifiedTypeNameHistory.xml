@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.spring.demo.ioc.BaseballCoach"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="com.spring.demo.ioc.Coach"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="com.luv2code.aopdemo.dao.AccountDAO"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
+    <fullyQualifiedTypeName name="com.spring.demo.aop.DemoConfig"/>
+    <fullyQualifiedTypeName name="com.spring.demo.aop.dao.AccountDAO"/>
+    <fullyQualifiedTypeName name="com.spring.demo.aop.dao.MembershipDAO"/>
+    <fullyQualifiedTypeName name="com.spring.demo.aop.jointpoint.Account"/>
+    <fullyQualifiedTypeName name="com.spring.demo.aop.jointpoint.dao.MembershipDAO"/>
+    <fullyQualifiedTypeName name="com.spring.demo.aop.jointpoint.dao.AccountDAO"/>
+    <fullyQualifiedTypeName name="com.spring.demo.aop.dao.AccountDAO1"/>
+    <fullyQualifiedTypeName name="com.spring.demo.aop.dao.MembershipDAO1"/>
 </qualifiedTypeNameHistroy>

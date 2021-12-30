@@ -1,0 +1,19 @@
+package com.spring.demo.aop.jointpoint.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component
+@Order(3) // control the order of Aspects using the @Order annotation
+		  // Guarantess the order of when the Aspects to be applied
+public class MyApiAnalyticsAspect {
+
+	@Before("com.spring.demo.aop.jointpoint.aspect.AopExpressions.forDaoPackageNoGetterSetter()")
+	public void performApiAnalytics() {
+		System.out.println("\n=====>>> Performing API analytics");		
+	}
+
+}
