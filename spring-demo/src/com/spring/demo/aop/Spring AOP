@@ -22,6 +22,7 @@ Need to add security to our DAO method
 public void addAccount() {
 	// add code for logging		
 	// add code for security
+	// add code for transformation
 	System.out.println(getClass() + ": DOING MY DB WORK: ADDING AN ACCOUNT");
 }
 
@@ -60,7 +61,8 @@ Pointcut(regular expression) : A predicate expression where advice should be app
 Example : ("execution(public void addAccount())")
 
 pointcut expression language:
-execution(modifier-pattern? return-type-pattern declare-type-pattern?method-name-pattern(param-pattern) throws pattern?)
+execution(modifier-pattern? return-type-pattern declare-type-pattern?
+			method-name-pattern(param-pattern) throws pattern?)
 
 modifier-pattern : Spring AOP only supports public
 return-type-pattern : void,boolean,String
@@ -91,15 +93,29 @@ Join point
 Join point is any point in your program such as method execution, exception handling, 
 field access etc. Spring supports only method execution join point.
 
+public void addAccount() {
+	// add code for logging		
+	// add code for security
+	// add code for transformation
+	System.out.println(getClass() + ": DOING MY DB WORK: ADDING AN ACCOUNT");
+}
+
 Problem :
 When we are in an aspects (ie for logging)
 	How can we access method parameters
 		Account myAccount = new Account();
-		theAccountDao.addAccount(myAccount,true);
+		theAccountDao.beforeAddAccountAdvice(myAccount,true);
+		theAccountDao.addAccount();
 		
 Step1 : Access & display method signature
+
+	public void beforeAddAccountAdvice(Account account,Boolean flag){
+	
+	} 
+
 	@Before("")
-	public void beforeAddAccountAdvice(Jointpoint jointpoint) // Jointpoint contains the metedata about the method call
+	public void beforeAddAccountAdvice(Jointpoint jointpoint) 
+		// Jointpoint contains the metedata about the method call
 		{
 			MethodSignature methodSignature =(MethodSignature)jointpoint.getSignature();
 			sysout("methodSignature: "+methodSignature)

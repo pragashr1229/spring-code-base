@@ -24,13 +24,13 @@ public class MainDemoApp {
 		// call the business method again
 		theAccountDAO.addAccount();
 
-	/*	
+	
 		// get membership bean from spring container
 		MembershipDAO1 theMembershipDAO = context.getBean("membershipDAO1", MembershipDAO1.class);
 
 		// call the membership business method
 		theMembershipDAO.addSillyMember();
-*/
+
 		// close the context
 		context.close();
 	}

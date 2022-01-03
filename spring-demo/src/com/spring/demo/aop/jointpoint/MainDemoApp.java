@@ -26,7 +26,7 @@ public class MainDemoApp {
 		myAccount.setName("Madhu");
 		myAccount.setLevel("Platinum");
 		
-		theAccountDAO.addAccount(myAccount, true);
+		//theAccountDAO.addAccount(myAccount, true);
 		theAccountDAO.doWork();
 		
 		// call the accountdao getter/setter methods
